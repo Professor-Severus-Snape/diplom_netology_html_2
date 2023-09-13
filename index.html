@@ -36,6 +36,39 @@
 
   <body class="root">
 
+    <!-- всплывающее окно: -->
+    <label class="popup__button" for="pop-up">Открыть всплывающее окно</label>
+    <input class="popup__toggle" type="checkbox" id="pop-up">
+    <div class="popup">
+      <label class="popup__close-background" for="pop-up"></label>
+      <form class="feedback" action="#0">
+        <label for="pop-up" class="popup__close-btn"></label>
+        <h2 class="h2-title feedback__h2-title">Ваш фидбек</h2>
+        <fieldset class="feedback__visits">
+          <legend class="feedback__title-visits">Как часто вы заходите на сайт?</legend>
+          <select class="feedback__select">
+            <option selected>Почти каждый день</option>
+            <option>Раз в неделю</option>
+            <option>Раз в месяц</option>
+            <option>Раз в год</option>
+            <option>Не захожу вообще</option>
+          </select>
+        </fieldset>
+        <fieldset class="feedback__subscribe">
+          <legend class="feedback__title-subscribe">Вы подписаны на e-mail рассылку?</legend>
+          <input class="feedback__radio" type="radio" name="subscribe" id="yes" checked>
+          <label class="feedback__label" for="yes">Да</label>
+          <input class="feedback__radio" type="radio" name="subscribe" id="no">
+          <label class="feedback__label" for="no">Нет</label>
+        </fieldset>
+        <fieldset class="feedback__comment">
+          <legend class="feedback__title-comment">Расскажите, какой контент вы хотели бы видеть на нашем сайте?</legend>
+          <textarea class="feedback__textarea" placeholder="Может, больше рецептов?" required></textarea>
+        </fieldset>
+        <button class="send-button" type="submit">Отправить</button>
+      </form>
+    </div>
+
     <header class="header">
 
       <div class="header-container">
@@ -408,7 +441,7 @@
           <h2 class="h2-title subscribe-form__h2-title">Рассылка</h2>
           <label class="visually-hidden" for="subscribe">Введите email</label>
           <input class="subscribe-form__field" type="email" id="subscribe" placeholder="Ваш email-адрес" required>
-          <button class="subscribe-form__button" type="submit">Подписаться</button>
+          <button class="send-button" type="submit">Подписаться</button>
         </form>
 
         <section class="tags-section">
