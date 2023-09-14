@@ -30,6 +30,7 @@
 
 .popup__button {
   display: inline-block;
+  /* display: none; */
   padding: 20px;
 
   color: white;
@@ -65,10 +66,9 @@
   transform: translate(-50%, -50%);
   
   width: 390px;
-  height: 589px;
   
   background-color: white;
-  padding: 55px 30px 20px;
+  padding: 55px 30px 54px;
 }
 
 .popup__close-btn {
@@ -252,7 +252,7 @@
 
 .header-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px 15px 125px;
@@ -262,6 +262,8 @@
 }
 
 .header-wrapper {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -269,7 +271,7 @@
   margin-bottom: 104px;
 
   /* для лучшей визуализации границ: */
-  /* outline: 2px dashed yellow; */
+  outline: 2px dashed yellow;
 }
 
 .logo {
@@ -354,17 +356,6 @@
   background: #eff6f1 center / cover no-repeat;
 }
 
-/* маска: */
-.trend::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 .trend_1 {
   background-image: url("../images/trend_1.jpg");
 }
@@ -381,8 +372,18 @@
   background-image: url("../images/trend_4.jpg");
 }
 
+/* маска: */
+.trend::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .trend-content {
-  position: relative;
   z-index: 1;
 
   padding: 35px 32px;
@@ -784,7 +785,7 @@
 }
 
 /* чтобы не ломалась верстка, если не загрузится картинка */
-picture {
+.product__picture {
   min-height: 204px;
 }
 
@@ -934,4 +935,91 @@ picture {
   
   color: #999999;
   text-decoration: none;
+}
+
+/* ============================== 768px - 1199px (tablet) ============================== */
+@media (max-width: 1200px) {
+
+  .burger {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+
+    /* для лучшей визуализации границ: */
+    outline: 2px dotted red;
+  }
+
+  .burger__line {
+    width: 23px;
+    height: 2px;
+
+    background-color:#ffffff;
+    transition: 0.4s all ease;
+  }
+
+  .burger_active .burger__line_first {
+    position: relative;
+    top: 3px;
+    transform: rotate(45deg);
+  }
+
+  .burger_active .burger__line_second {
+    display: none;
+  }
+
+  .burger_active .burger__line_third {
+    position: relative;
+    top: -4px;
+    transform: rotate(-45deg);
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+
+    width: 50%;
+    height: 100vh;
+    padding: 50px;
+
+    background-color: var(--color-style);
+    transition: 0.5s all ease;
+  }
+
+  .menu__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0;
+
+    height: 100%;
+  }
+
+  .menu__link {
+    font-size: 24px;
+  }
+
+  .menu_active {
+    right: 0;
+  }
+
+}
+
+/* ============================== 360px - 767px (mobile) ============================== */
+@media (max-width: 767px) {
+
+  .menu {
+    width: 100%;
+  }
+
 }
