@@ -28,23 +28,7 @@
 
 /* ============================== popup ============================== */
 
-.popup__button {
-  display: inline-block;
-  /* display: none; */
-  padding: 20px;
-
-  color: white;
-  background-color: blue;
-  cursor: pointer;
-}
-
-.popup__toggle {
-  display: none;
-}
-
 .popup {
-  display: none;
-
   position: fixed;
   top: 0;
   right: 0;
@@ -55,8 +39,19 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.popup__toggle:checked + .popup {
-  display: flex;
+.popup_hidden {
+  display: none;
+}
+
+.popup__close-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
 }
 
 .feedback {
@@ -76,26 +71,11 @@
   top: -27px;
   right: -3px;
   
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  
   width: 20px;
   height: 20px;
 
   background-image: url("../svg/form-x.svg");
   background-repeat: no-repeat;
-  cursor: pointer;
-}
-
-.popup__close-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
   cursor: pointer;
 }
 
@@ -140,6 +120,7 @@
   width: 100%;
   margin-bottom: 30px;
   padding: 12px 30px 15px 17px;
+  border: 0;
   
   font-size: 13px;
 
@@ -152,6 +133,10 @@
   cursor: pointer;
 }
 
+.feedback__select:focus {
+  outline: 2px solid var(--color-style);
+}
+
 .feedback__subscribe {
   margin-bottom: 28px;
 }
@@ -161,9 +146,16 @@
   font-size: 13px;
 }
 
-.feedback__radio {
-  display: none;
-}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip-path: circle(0);
+  overflow: hidden;
+} 
 
 .feedback__label {
   display: inline-block;
@@ -206,9 +198,15 @@
   width: 100%;
   height: 130px;
   padding: 16px 20px;
+  border: 0;
   resize: none;
   
   font-size: 13px;
+  background-color: #eff3f8;
+}
+
+.feedback__textarea:focus {
+  outline: 2px solid var(--color-style);
 }
 
 .send-button {
@@ -230,7 +228,6 @@
 
 /* ============================== header ============================== */
 
-/* баннер на всю ширину экрана */
 .header {
   position: relative;
   background-image: url("../images/banner_desktop.jpg");
@@ -240,7 +237,6 @@
   background-color: #666666;
 }
 
-/* маска: */
 .header::after {
   content: "";
   position: absolute;
@@ -263,8 +259,6 @@
 }
 
 .header-wrapper {
-  /* position: relative; */
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -272,7 +266,7 @@
   margin-bottom: 104px;
 
   /* для лучшей визуализации границ: */
-  outline: 2px dashed yellow;
+  /* outline: 2px dashed yellow; */
 }
 
 .logo {
@@ -373,7 +367,6 @@
   background-image: url("../images/trend_4.jpg");
 }
 
-/* маска: */
 .trend::after {
   content: "";
   position: absolute;
@@ -439,19 +432,8 @@
   width: 778px;
 
   /* для лучшей визуализации границ: */
-  outline: 2px solid blue;
+  /* outline: 2px solid blue; */
 }
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip-path: circle(0);
-  overflow: hidden;
-} 
 
 .article {
   display: flex;
@@ -462,7 +444,6 @@
   /* outline: 2px dashed purple; */
 }
 
-/* микс для внешней геометрии: */
 .main__article:not(:last-child) {
   margin-bottom: 60px;
 }
@@ -481,7 +462,6 @@
 .article-content {
   width: 367px;
 }
-
 
 .article-title {
   padding: 10px 0 28px;
@@ -533,14 +513,10 @@
 /* ============================== sidebar ============================== */
 
 .sidebar {
-  /* display: flex;
-  flex-direction: column;
-  gap: 60px; */
-
   width: 272px;
 
   /* для лучшей визуализации границ: */
-  outline: 2px solid blue;
+  /* outline: 2px solid blue; */
 }
 
 .posts-section {
@@ -762,8 +738,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 70px 15px 0;
-
-  /* outline: 2px  solid red; */
 }
 
 .products-section__h2-title {
@@ -960,7 +934,6 @@
   .feedback__label::before {
     width: 25px;
     height: 25px;
-    
     margin-right: 7px;
   }
 
@@ -996,7 +969,7 @@
     cursor: pointer;
 
     /* для лучшей визуализации границ: */
-    outline: 2px dotted red;
+    /* outline: 2px dotted red; */
   }
 
   .burger__line {
@@ -1082,7 +1055,6 @@
 
   .trend-content {
     width: 100%;
-
     padding: 30px;
   }
 
@@ -1102,7 +1074,6 @@
 
   .main {
     width: 75%;
-    /* max-width: 778px; */
   }
 
   .article {
@@ -1189,7 +1160,6 @@
 /* ============================== 360px - 640px (mobile) ============================== */
 @media (max-width: 640px) {
 
-
   .feedback {
     width: 92%;
     padding: 30px 25px;
@@ -1231,7 +1201,6 @@
   }
 
   .title-first {
-    /* width: 100%; */
     font-size: 24px;
     line-height: 36px;
     letter-spacing: 1px;

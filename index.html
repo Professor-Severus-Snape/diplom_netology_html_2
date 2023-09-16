@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- SEO (заголовок, описание, ключевые слова): -->
     <title>Noemi (adaptive)</title>
     <meta name="description" content="Дипломный проект курса «Адаптивная и мобильная вёрстка»">
     <meta name="keywords" content="диплом, вёрстка, нетология">
 
-    <!-- подключение стилей: -->
     <link rel="stylesheet" href="./css/style.css">
     
-    <!-- SEO (favicons): -->
     <link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png">
@@ -36,13 +33,10 @@
 
   <body class="root">
 
-    <!-- всплывающее окно: -->
-    <label class="popup__button" for="pop-up">Открыть всплывающее окно</label>
-    <input class="popup__toggle" type="checkbox" id="pop-up">
     <div class="popup">
-      <label class="popup__close-background" for="pop-up"></label>
+      <div class="popup__close-background"></div>
       <form class="feedback" action="#0">
-        <label for="pop-up" class="popup__close-btn"></label>
+        <div class="popup__close-btn"></div>
         <h2 class="h2-title feedback__h2-title">Ваш фидбек</h2>
         <fieldset class="feedback__visits">
           <legend class="feedback__title-visits">Как часто вы заходите на сайт?</legend>
@@ -56,9 +50,9 @@
         </fieldset>
         <fieldset class="feedback__subscribe">
           <legend class="feedback__title-subscribe">Вы подписаны на e-mail рассылку?</legend>
-          <input class="feedback__radio" type="radio" name="subscribe" id="yes" checked>
+          <input class="feedback__radio visually-hidden" type="radio" name="subscribe" id="yes" checked>
           <label class="feedback__label" for="yes">Да</label>
-          <input class="feedback__radio" type="radio" name="subscribe" id="no">
+          <input class="feedback__radio visually-hidden" type="radio" name="subscribe" id="no">
           <label class="feedback__label" for="no">Нет</label>
         </fieldset>
         <fieldset class="feedback__comment">
@@ -619,10 +613,14 @@
     </footer>
 
     <script>
+
       window.addEventListener('DOMContentLoaded', () => {
-        const menu = document.querySelector('.menu'),
-        menuItem = document.querySelectorAll('.menu__item'),
-        burger = document.querySelector('.burger');
+        const menu = document.querySelector('.menu');
+        menuItem = document.querySelectorAll('.menu__item');
+        const burger = document.querySelector('.burger');
+        const popup = document.querySelector('.popup');
+        const closeButton = document.querySelector('.popup__close-btn');
+        const closeBackground = document.querySelector('.popup__close-background');
 
         burger.addEventListener('click', () => {
           burger.classList.toggle('burger_active');
@@ -635,7 +633,16 @@
             menu.classList.toggle('menu_active');
           })
         })
+
+        closeButton.addEventListener('click', () => {
+          popup.classList.toggle('popup_hidden');
+        });
+
+        closeBackground.addEventListener('click', () => {
+          popup.classList.toggle('popup_hidden');
+        })
       })
+
     </script>
 
   </body>
