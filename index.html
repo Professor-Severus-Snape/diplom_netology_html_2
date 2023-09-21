@@ -42,10 +42,9 @@
           <legend class="feedback__title-visits">Как часто вы заходите на сайт?</legend>
           <select class="feedback__select">
             <option selected>Почти каждый день</option>
-            <option>Раз в неделю</option>
-            <option>Раз в месяц</option>
-            <option>Раз в год</option>
-            <option>Не захожу вообще</option>
+            <option>Раз в несколько дней</option>
+            <option>Раз в несколько недель</option>
+            <option>Несколько раз в год</option>
           </select>
         </fieldset>
         <fieldset class="feedback__subscribe">
@@ -616,7 +615,7 @@
 
       window.addEventListener('DOMContentLoaded', () => {
         const menu = document.querySelector('.menu');
-        menuItem = document.querySelectorAll('.menu__item');
+        const menuItem = document.querySelectorAll('.menu__item');
         const burger = document.querySelector('.burger');
         const popup = document.querySelector('.popup');
         const closeButton = document.querySelector('.popup__close-btn');
