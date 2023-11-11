@@ -621,16 +621,21 @@
         const closeButton = document.querySelector('.popup__close-btn');
         const closeBackground = document.querySelector('.popup__close-background');
 
-        burger.addEventListener('click', () => {
+        const toggleMenu = () => {
           burger.classList.toggle('burger_active');
           menu.classList.toggle('menu_active');
-        });
+          
+          if (menu.classList.contains('menu_active')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        };
+
+        burger.addEventListener('click', toggleMenu);
 
         menuItem.forEach(item => {
-          item.addEventListener('click', () => {
-            burger.classList.toggle('burger_active');
-            menu.classList.toggle('menu_active');
-          })
+          item.addEventListener('click', toggleMenu);
         })
 
         closeButton.addEventListener('click', () => {
